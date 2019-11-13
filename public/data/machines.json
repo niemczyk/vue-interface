@@ -1,0 +1,26 @@
+[
+  {
+    "machineName": "Spot",
+    "manufacturer": "Constance Smith",
+    "machDate": "2017-07-24 08:30",
+    "machineDescription": "This German Shepherd is having some back pain"
+  },
+  {
+    "machineName": "Goldie",
+    "manufacturer": "Barot Bellingham",
+    "machDate": "2017-07-22 15:50",
+    "machineDescription": "This Goldfish has some weird spots in the belly"
+  },
+  {
+    "machineName": "Mitten",
+    "manufacturer": "Hillary Goldwyn",
+    "machDate": "2017-07-21 9:15",
+    "machineDescription": "Cat has excessive hairballs"
+  },
+  {
+    "machineName": "Buffy",
+    "manufacturer": "Hassum Harrod",
+    "machDate": "2017-07-20 15:30",
+    "machineDescription": "This Chihuahua has not eaten for three days and is lethargic"
+  }
+]

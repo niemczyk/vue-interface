@@ -2,73 +2,73 @@
   <div class="col-12">
     <div class="card textcenter mt-3">
       <div class="card-header bg-primary text-white" @click="hidepanel=!hidepanel">
-        <font-awesome-icon icon="plus" class="mr-3"/>Add Appointment
+        <font-awesome-icon icon="plus" class="mr-3"/>Add Machine
       </div>
 
       <div class="card-body" :class="{ 'd-none': hidepanel}">
-        <form id="aptForm" @submit.prevent="requestAdd">
+        <form id="machForm" @submit.prevent="requestAdd">
           <div class="form-group form-row">
-            <label class="col-md-2 col-form-label text-md-right" for="petName">Pet Name</label>
+            <label class="col-md-2 col-form-label text-md-right" for="machineName">Machine Name</label>
             <div class="col-md-10">
               <input
                 type="text"
                 class="form-control"
-                name="petName"
-                id="petName"
-                placeholder="Pet's Name"
-                v-model="formData.petName"
+                name="machineName"
+                id="machineName"
+                placeholder="Machine"
+                v-model="formData.machineName"
               >
             </div>
           </div>
 
           <div class="form-group form-row">
-            <label class="col-md-2 col-form-label text-md-right" for="ownerName">Pet Owner</label>
+            <label class="col-md-2 col-form-label text-md-right" for="manufacturer">Pet Owner</label>
             <div class="col-md-10">
               <input
                 type="text"
                 class="form-control"
-                id="ownerName"
+                id="manufacturer"
                 placeholder="Owner's Name"
-                v-model="formData.ownerName"
+                v-model="formData.manufacturer"
               >
             </div>
           </div>
 
           <div class="form-group form-row">
-            <label class="col-md-2 col-form-label text-md-right" for="aptDate">Date</label>
+            <label class="col-md-2 col-form-label text-md-right" for="machDate">Date</label>
             <div class="col-md-4">
-              <input type="date" class="form-control" id="aptDate" v-model="formData.aptDate">
+              <input type="date" class="form-control" id="machDate" v-model="formData.machDate">
             </div>
-            <label class="col-md-2 col-form-label text-md-right" for="aptTime">Time</label>
+            <label class="col-md-2 col-form-label text-md-right" for="machTime">Time</label>
             <div class="col-md-4">
               <input
                 type="time"
                 class="form-control"
-                name="aptTime"
-                id="aptTime"
-                v-model="formData.aptTime"
+                name="machTime"
+                id="machTime"
+                v-model="formData.machTime"
               >
             </div>
           </div>
 
           <div class="form-group form-row">
-            <label class="col-md-2 text-md-right" for="aptNotes">Apt. Notes</label>
+            <label class="col-md-2 text-md-right" for="machineDescription">Apt. Notes</label>
             <div class="col-md-10">
               <textarea
                 class="form-control"
                 rows="4"
                 cols="50"
-                name="aptNotes"
-                id="aptNotes"
-                placeholder="Appointment Notes"
-                v-model="formData.aptNotes"
+                name="machineDescription"
+                id="machineDescription"
+                placeholder="Machine Notes"
+                v-model="formData.machineDescription"
               ></textarea>
             </div>
           </div>
 
           <div class="form-group form-row mb-0">
             <div class="offset-md-2 col-md-10">
-              <button type="submit" class="btn btn-primary d-block ml-auto">Add Appointment</button>
+              <button type="submit" class="btn btn-primary d-block ml-auto">Add Machine</button>
             </div>
           </div>
         </form>
@@ -79,7 +79,7 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
-  name: "AddAppointment",
+  name: "AddMachine",
   data() {
     return {
       formData: [],
@@ -92,10 +92,10 @@ export default {
   methods: {
     requestAdd: function() {
       this.formData = {
-        petName: this.formData.petName,
-        petOwner: this.formData.ownerName,
-        aptDate: this.formData.aptDate + " " + this.formData.aptTime,
-        aptNotes: this.formData.aptNotes
+        machineName: this.formData.machineName,
+        manufacturer: this.formData.manufacturer,
+        machDate: this.formData.machDate + " " + this.formData.machTime,
+        machineDescription: this.formData.machineDescription
       };
       this.$emit("add", this.formData);
       this.formData = [];

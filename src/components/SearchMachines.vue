@@ -2,11 +2,11 @@
   <div class="col-12 col-md-10 col-lg-7">
     <div class="input-group my-3">
       <input
-        id="SearchApts"
+        id="SearchMachs"
         placeholder="Search"
         type="text"
         class="form-control"
-        aria-label="Search Appointments"
+        aria-label="Search Machines"
         v-model="searchTerm"
       >
 
@@ -26,31 +26,31 @@
           <a
             href="#"
             class="dropdown-item d-flex justify-content-between"
-            id="petName"
-            @click="$emit('requestKey', 'petName')"
+            id="machineName"
+            @click="$emit('requestKey', 'machineName')"
           >
             Pet Name
-            <font-awesome-icon icon="check" v-if="myKey==='petName'"/>
+            <font-awesome-icon icon="check" v-if="myKey==='machineName'"/>
           </a>
 
           <a
             class="dropdown-item d-flex justify-content-between"
             href="#"
-            id="aptDate"
-            @click="$emit('requestKey', 'aptDate')"
+            id="machDate"
+            @click="$emit('requestKey', 'machDate')"
           >
             Date
-            <font-awesome-icon icon="check" v-if="myKey==='aptDate'"/>
+            <font-awesome-icon icon="check" v-if="myKey==='machDate'"/>
           </a>
 
           <a
             href="#"
             class="dropdown-item d-flex justify-content-between"
             id="ownerName"
-            @click="$emit('requestKey', 'petOwner')"
+            @click="$emit('requestKey', 'manufacturer')"
           >
-            Owner
-            <font-awesome-icon icon="check" v-if="myKey==='petOwner'"/>
+            Manufacturer
+            <font-awesome-icon icon="check" v-if="myKey==='manufacturer'"/>
           </a>
 
           <div class="dropdown-divider" role="separator"></div>
@@ -83,7 +83,7 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
-  name: "SearchAppointments",
+  name: "SearchMachines",
   data() {
     return {
       searchTerm: ""

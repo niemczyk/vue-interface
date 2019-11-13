@@ -3,8 +3,8 @@
     <div class="list-group list-group-flush">
       <div
         class="list-group-item d-flex align-items-start"
-        v-for="item in appointments"
-        :key="item.aptIndex"
+        v-for="item in machines"
+        :key="item.machIndex"
       >
         <button class="mr-2 btn btn-sm btn-danger" @click="$emit('remove', item)">
           <font-awesome-icon icon="trash"/>
@@ -14,21 +14,21 @@
             <span
               class="h4 text-primary"
               contenteditable="contenteditable"
-              @blur="$emit('edit', item.aptId, 'petName', $event.target.innerText)"
-            >{{item.petName}}</span>
-            <span class="float-right">{{formattedDate(item.aptDate)}}</span>
+              @blur="$emit('edit', item.machId, 'machineName', $event.target.innerText)"
+            >{{item.machineName}}</span>
+            <span class="float-right">{{formattedDate(item.machDate)}}</span>
           </div>
           <div class="owner-name">
-            <span class="font-weight-bold text-primary mr-1">Owner:</span>
+            <span class="font-weight-bold text-primary mr-1">Manufacturer:</span>
             <span
               contenteditable="contenteditable"
-              @blur="$emit('edit', item.aptId, 'petOwner', $event.target.innerText)"
-            >{{item.petOwner}}</span>
+              @blur="$emit('edit', item.machId, 'manufacturer', $event.target.innerText)"
+            >{{item.manufacturer}}</span>
           </div>
           <div
             contenteditable="contenteditable"
-            @blur="$emit('edit', item.aptId, 'aptNotes', $event.target.innerText)"
-          >{{item.aptNotes}}</div>
+            @blur="$emit('edit', item.machId, 'machineDescription', $event.target.innerText)"
+          >{{item.machineDescription}}</div>
         </div>
       </div>
     </div>
@@ -39,8 +39,8 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import moment from "moment";
 export default {
-  name: "AppointmentList",
-  props: ["appointments"],
+  name: "MachineList",
+  props: ["machines"],
   components: {
     FontAwesomeIcon
   },

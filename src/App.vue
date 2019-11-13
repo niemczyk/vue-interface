@@ -1,65 +1,65 @@
 <template>
   <div id="main-app" class="container">
     <div class="row justify-content-center">
-      <add-appointment @add="addItem"/>
-      <search-appointments
-        @searchRecords="searchAppointments"
+      <add-machine @add="addItem"/>
+      <search-machines
+        @searchRecords="searchMachines"
         :myKey="filterKey"
         :myDir="filterDir"
         @requestKey="changeKey"
         @requestDir="changeDir"
       />
-      <appointment-list :appointments="filteredApts" @remove="removeItem" @edit="editItem"/>
+      <machine-list :machines="filteredApts" @remove="removeItem" @edit="editItem"/>
     </div>
   </div>
 </template>
 
 <script>
-import AddAppointment from "./components/AddAppointment";
-import SearchAppointments from "./components/SearchAppointments";
-import AppointmentList from "./components/AppointmentList";
+import AddMachine from "./components/AddMachine";
+import SearchMachines from "./components/SearchMachines";
+import MachineList from "./components/MachineList";
 import _ from "lodash";
 import axios from "axios";
 
 export default {
-  name: "MainApp",
+  machineName: "MainApp",
   data: function() {
     return {
-      appointments: [],
-      filterKey: "petName",
+      machines: [],
+      filterKey: "machineName",
       filterDir: "asc",
       searchTerms: "",
-      aptIndex: 0
+      machIndex: 0
     };
   },
   components: {
-    AppointmentList,
-    SearchAppointments,
-    AddAppointment
+    MachineList,
+    SearchMachines,
+    AddMachine
   },
   mounted() {
-    axios.get("./data/appointments.json").then(
+    axios.get("./data/machines.json").then(
       response =>
-        (this.appointments = response.data.map(item => {
-          item.aptId = this.aptIndex;
-          this.aptIndex++;
+        (this.machines = response.data.map(item => {
+          item.machId = this.machIndex;
+          this.machIndex++;
           return item;
         }))
     );
   },
   computed: {
-    searchedApts: function() {
-      return this.appointments.filter(item => {
+    searchedMachs: function() {
+      return this.machines.filter(item => {
         return (
-          item.petName.toLowerCase().match(this.searchTerms.toLowerCase()) ||
-          item.petOwner.toLowerCase().match(this.searchTerms.toLowerCase()) ||
-          item.aptNotes.toLowerCase().match(this.searchTerms.toLowerCase())
+          item.machineName.toLowerCase().match(this.searchTerms.toLowerCase()) ||
+          item.manufacturer.toLowerCase().match(this.searchTerms.toLowerCase()) ||
+          item.machineDescription.toLowerCase().match(this.searchTerms.toLowerCase())
         );
       });
     },
     filteredApts: function() {
       return _.orderBy(
-        this.searchedApts,
+        this.searchedMachs,
         item => {
           return item[this.filterKey].toLowerCase();
         },
@@ -74,22 +74,22 @@ export default {
     changeDir: function(value) {
       this.filterDir = value;
     },
-    searchAppointments: function(terms) {
+    searchMachines: function(terms) {
       this.searchTerms = terms;
     },
-    addItem: function(apt) {
-      apt.aptId = this.aptIndex;
-      this.aptIndex++;
-      this.appointments.push(apt);
+    addItem: function(mach) {
+      mach.machId = this.machIndex;
+      this.machIndex++;
+      this.machines.push(mach);
     },
-    removeItem: function(apt) {
-      this.appointments = _.without(this.appointments, apt);
+    removeItem: function(mach) {
+      this.machines = _.without(this.machines, mach);
     },
     editItem: function(id, field, text) {
-      const aptIndex = _.findIndex(this.appointments, {
-        aptId: id
+      const machIndex = _.findIndex(this.machines, {
+        machId: id
       });
-      this.appointments[aptIndex][field] = text;
+      this.machines[machIndex][field] = text;
     }
   }
 };
