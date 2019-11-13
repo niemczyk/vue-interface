@@ -1,26 +1,26 @@
 [
   {
-    "machineName": "Spot",
-    "manufacturer": "Constance Smith",
+    "machineName": "Shopbot Router",
+    "manufacturer": "Shopbot",
     "machDate": "2017-07-24 08:30",
-    "machineDescription": "This German Shepherd is having some back pain"
+    "machineDescription": "4x8 CNC Router"
   },
   {
-    "machineName": "Goldie",
-    "manufacturer": "Barot Bellingham",
+    "machineName": "Huge Red Laser",
+    "manufacturer": "Laser Makers Inc.",
     "machDate": "2017-07-22 15:50",
-    "machineDescription": "This Goldfish has some weird spots in the belly"
+    "machineDescription": "large Intimidating laser cutter"
   },
   {
-    "machineName": "Mitten",
-    "manufacturer": "Hillary Goldwyn",
+    "machineName": "Heavy Duty Sewing Station",
+    "manufacturer": "Singer",
     "machDate": "2017-07-21 9:15",
-    "machineDescription": "Cat has excessive hairballs"
+    "machineDescription": "Sewing machine with excessive hairballs"
   },
   {
-    "machineName": "Buffy",
-    "manufacturer": "Hassum Harrod",
+    "machineName": "Table Saw",
+    "manufacturer": "Stanley",
     "machDate": "2017-07-20 15:30",
-    "machineDescription": "This Chihuahua has not eaten for three days and is lethargic"
+    "machineDescription": "This puppy has not eaten for three days and is lethargic"
   }
 ]
