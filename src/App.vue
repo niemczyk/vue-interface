@@ -1,15 +1,24 @@
 <template>
   <div id="main-app" class="container">
     <div class="row justify-content-center">
+      <current-machine :item="currentMachine" v-if="currentMachine" />
+    <br/><br/>
       <add-machine @add="addItem"/>
       <search-machines
-        @searchRecords="searchMachines"
+        @searchMachineRecords="searchMachines"
         :myKey="filterKey"
         :myDir="filterDir"
         @requestKey="changeKey"
         @requestDir="changeDir"
+        @handlePick="handlePick"
       />
-      <machine-list :machines="filteredApts" @remove="removeItem" @edit="editItem"/>
+      <machine-list 
+        :machines="filteredApts" 
+        :currentMachine="currentMachine"
+        @handlePick="handlePick"
+        @remove="removeItem" 
+        @edit="editItem"
+        />
     </div>
   </div>
 </template>
@@ -18,6 +27,7 @@
 import AddMachine from "./components/AddMachine";
 import SearchMachines from "./components/SearchMachines";
 import MachineList from "./components/MachineList";
+import CurrentMachine from "@/components/CurrentMachine";
 import _ from "lodash";
 import axios from "axios";
 
@@ -26,6 +36,7 @@ export default {
   data: function() {
     return {
       machines: [],
+      currentMachine: null,
       filterKey: "machineName",
       filterDir: "asc",
       searchTerms: "",
@@ -34,6 +45,7 @@ export default {
   },
   components: {
     MachineList,
+    CurrentMachine,    
     SearchMachines,
     AddMachine
   },
@@ -76,6 +88,9 @@ export default {
     },
     searchMachines: function(terms) {
       this.searchTerms = terms;
+    },
+    handlePick: function(payload) {
+      this.currentMachine = payload;
     },
     addItem: function(mach) {
       mach.machId = this.machIndex;

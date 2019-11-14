@@ -6,7 +6,9 @@
       </div>
 
       <div class="card-body" :class="{ 'd-none': hidepanel}">
-        <form id="machForm" @submit.prevent="requestAdd">
+        <form id="machForm" 
+        @submit.prevent="requestAdd"
+        >
           <div class="form-group form-row">
             <label class="col-md-2 col-form-label text-md-right" for="machineName">Machine Name</label>
             <div class="col-md-10">
@@ -16,7 +18,7 @@
                 name="machineName"
                 id="machineName"
                 placeholder="Machine"
-                v-model="formData.machineName"
+                v-model="formMachineData.machineName"
               >
             </div>
           </div>
@@ -29,7 +31,7 @@
                 class="form-control"
                 id="manufacturer"
                 placeholder="Owner's Name"
-                v-model="formData.manufacturer"
+                v-model="formMachineData.manufacturer"
               >
             </div>
           </div>
@@ -37,7 +39,7 @@
           <div class="form-group form-row">
             <label class="col-md-2 col-form-label text-md-right" for="machDate">Date</label>
             <div class="col-md-4">
-              <input type="date" class="form-control" id="machDate" v-model="formData.machDate">
+              <input type="date" class="form-control" id="machDate" v-model="formMachineData.machDate">
             </div>
             <label class="col-md-2 col-form-label text-md-right" for="machTime">Time</label>
             <div class="col-md-4">
@@ -46,7 +48,7 @@
                 class="form-control"
                 name="machTime"
                 id="machTime"
-                v-model="formData.machTime"
+                v-model="formMachineData.machTime"
               >
             </div>
           </div>
@@ -61,7 +63,7 @@
                 name="machineDescription"
                 id="machineDescription"
                 placeholder="Machine Notes"
-                v-model="formData.machineDescription"
+                v-model="formMachineData.machineDescription"
               ></textarea>
             </div>
           </div>
@@ -82,7 +84,7 @@ export default {
   name: "AddMachine",
   data() {
     return {
-      formData: [],
+      formMachineData: [],
       hidepanel: true
     };
   },
@@ -91,14 +93,14 @@ export default {
   },
   methods: {
     requestAdd: function() {
-      this.formData = {
-        machineName: this.formData.machineName,
-        manufacturer: this.formData.manufacturer,
-        machDate: this.formData.machDate + " " + this.formData.machTime,
-        machineDescription: this.formData.machineDescription
+      this.formMachineData = {
+        machineName: this.formMachineData.machineName,
+        manufacturer: this.formMachineData.manufacturer,
+        machDate: this.formMachineData.machDate + " " + this.formMachineData.machTime,
+        machineDescription: this.formMachineData.machineDescription
       };
-      this.$emit("add", this.formData);
-      this.formData = [];
+      this.$emit("add", this.formMachineData);
+      this.formMachineData = [];
       this.hidepanel = true;
     }
   }

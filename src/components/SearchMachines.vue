@@ -29,7 +29,7 @@
             id="machineName"
             @click="$emit('requestKey', 'machineName')"
           >
-            Pet Name
+            Machine Name
             <font-awesome-icon icon="check" v-if="myKey==='machineName'"/>
           </a>
 
@@ -91,7 +91,7 @@ export default {
   },
   watch: {
     searchTerm: function() {
-      this.$emit("searchRecords", this.searchTerm);
+      this.$emit("searchMachineRecords", this.searchTerm);
     }
   },
   props: ["myKey", "myDir"],

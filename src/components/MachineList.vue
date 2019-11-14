@@ -11,24 +11,26 @@
         </button>
         <div class="w-100">
           <div class="d-flex justify-content-between">
-            <span
-              class="h4 text-primary"
+             <div @click="$emit('handlePick', item)"> <!--emit starts an event in the parent component-->
+            <small
+              class="text-primary"
               contenteditable="contenteditable"
               @blur="$emit('edit', item.machId, 'machineName', $event.target.innerText)"
-            >{{item.machineName}}</span>
-            <span class="float-right">{{formattedDate(item.machDate)}}</span>
-          </div>
-          <div class="owner-name">
-            <span class="font-weight-bold text-primary mr-1">Manufacturer:</span>
-            <span
+            >{{item.machineName}}</small>
+            <small class="float-right">{{formattedDate(item.machDate)}}</small>
+            <small class="owner-name">
+            <small class="font-weight-bold text-primary mr-1">Manufacturer:</small>
+            <small
               contenteditable="contenteditable"
               @blur="$emit('edit', item.machId, 'manufacturer', $event.target.innerText)"
-            >{{item.manufacturer}}</span>
-          </div>
-          <div
+            >{{item.manufacturer}}</small>
+          </small>
+          <small
             contenteditable="contenteditable"
             @blur="$emit('edit', item.machId, 'machineDescription', $event.target.innerText)"
-          >{{item.machineDescription}}</div>
+          >{{item.machineDescription}}</small>
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -3,24 +3,44 @@
     "machineName": "Shopbot Router",
     "manufacturer": "Shopbot",
     "machDate": "2017-07-24 08:30",
-    "machineDescription": "4x8 CNC Router"
+    "model": "Model A",
+    "serial": "stie6-7asiffh",
+    "mac": "00:0a:95:9d:68:14",
+    "createdAt": "2019-06-01 08:30",
+    "machineDescription": "4x8 CNC Router",
+    "status": "active"
   },
   {
     "machineName": "Huge Red Laser",
     "manufacturer": "Laser Makers Inc.",
     "machDate": "2017-07-22 15:50",
-    "machineDescription": "large Intimidating laser cutter"
+    "model": "Model 1",
+    "serial": "sodfsdfasiffh",
+    "mac": "00:0a:95:9d:68:16",
+    "createdAt": "2019-06-01 08:30",
+    "machineDescription": "large Intimidating laser cutter",
+    "status": "active"
   },
   {
     "machineName": "Heavy Duty Sewing Station",
     "manufacturer": "Singer",
     "machDate": "2017-07-21 9:15",
-    "machineDescription": "Sewing machine with excessive hairballs"
+    "model": "32-E",
+    "serial": "spq2398u5asiffh",
+    "mac": "00:0a:95:9d:68:14",
+    "createdAt": "2017-07-12 08:30",
+    "machineDescription": "Sewing machine with excessive hairballs",
+    "status": "inactive"
   },
   {
     "machineName": "Table Saw",
     "manufacturer": "Stanley",
     "machDate": "2017-07-20 15:30",
-    "machineDescription": "This puppy has not eaten for three days and is lethargic"
+    "model": "Huge Red",
+    "serial": "sodfsdfasiffh",
+    "mac": "00:0a:95:9d:68:17",
+    "createdAt": "2018-05-24 08:30",
+    "machineDescription": "This puppy has not eaten for three days and is lethargic",
+    "status": "active"
   }
 ]
